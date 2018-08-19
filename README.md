@@ -1,4 +1,4 @@
-ud120-projects
+intro-to-machine-learning
 ==============
 
-Starter project code for students taking Udacity ud120
+Completed project code for students taking Udacity ud120 - Intro to Machine Learning
