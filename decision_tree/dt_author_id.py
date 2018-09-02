@@ -10,22 +10,25 @@
     
 import sys
 from time import time
+from sklearn import tree
+from sklearn.metrics import accuracy_score
 sys.path.append("../tools/")
 from email_preprocess import preprocess
 
-
-### features_train and features_test are the features for the training
-### and testing datasets, respectively
-### labels_train and labels_test are the corresponding item labels
+# features_train and features_test are the features for the training
+# and testing datasets, respectively
+# labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+# Create the classifier
+clf = tree.DecisionTreeClassifier(min_samples_split=40)
 
+# Train the classifier
+clf.fit(features_train, labels_train)
 
+# Predict the test labels
+predictions = clf.predict(features_test)
 
-#########################################################
-### your code goes here ###
-
-
-#########################################################
-
-
+# Compute the accuracy
+accuracy = accuracy_score(labels_test, predictions)
+print "Decision tree author identifier accuracy: %f" % accuracy
